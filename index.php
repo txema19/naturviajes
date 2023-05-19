@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js" integrity="sha512-U2WE1ktpMTuRBPoCFDzomoIorbOyUv0sP8B+INA3EzNAhehbzED1rOJg6bCqPf/Tuposxb5ja/MAUnC8THSbLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="doodle.css" />
+    
+    <title>Naturviajes</title>
+    <style>
+        @font-face {
+        font-family: "CustomFont";
+        src: url('fuentes/ShorelinesScriptBold.woff') format("opentype");
+        }
+        @font-face {
+        font-family: "fuente2";
+        src: url('fuentes/EasyRider.ttf') format("opentype");
+        }
+        @font-face {
+        font-family: "fuente3";
+        src: url('fuentes/A little sunshine.ttf') format("opentype");
+        }
+        .cabecera{
+            
+            height: 0px;
+            width: 100%;
+        }
+
+        .container{
+            height:2100px;
+            position: relative;
+            top: 300px;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            padding:1em;
+            line-height:1.5em;
+            background:hsla(67, 95%, 95%, 1);
+            border:solid 5px #bf7e00;
+            background-color: #e5e5f7;
+            opacity: 0.8;
+            background-image:  radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0,10px 10px;
+            margin-bottom: 20px;
+
+        }
+        .card{
+            text-align: justify;
+            display:inline-block;
+            width:60%;
+            height: 500px;
+            margin:5% auto;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            padding:1em;
+            line-height:1.5em;
+            background:rgb(240, 226, 205);
+            border:solid 5px rgb(216, 193, 157);
+        }
+        .card-title{
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .card-img-top{
+            height: 200px;
+            border: 2px solid rgb(202, 182, 148);
+            border-radius: 255px 15px 225px 15px/55px 225px 15px 255px;
+        }
+        .fecha{
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight:600;
+            font-size: 15px;
+            position: absolute;
+            bottom: 26px;
+            right: 16px;
+        }
+
+        button.lined.thick{
+            border:solid 3px #41403E;
+            background:#F3B03E;
+            position: absolute;
+            bottom: 20px;
+            left: 10px;
+        }
+
+        button:hover{
+            box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+        }
+
+        .novedades{
+            float:right;
+        }
+        .seccion{
+            margin-top: 20px;
+            
+        }
+        #separador{
+            margin: auto;
+            margin-top: 18px;
+            margin-bottom: 12px;
+            width: 90%;
+        }
+        .nombresec{
+            margin-top: 10px;
+            text-align: center;
+            font-family:'CustomFont', Arial, sans-serif;
+        }
+        .nombresec{
+            font-size: 2e;
+        }
+
+        button {
+          background:transparent;
+          padding:0.5rem 0.5rem;
+          margin:0 0.5rem;
+          font-size:1rem;
+
+          border-top-left-radius: 255px 15px;
+          border-top-right-radius: 15px 225px;
+          border-bottom-right-radius: 225px 15px;
+          border-bottom-left-radius:15px 255px;
+        }
+        
+        .nav-item{
+            padding:0.5rem 0.5rem;
+            
+            font-size:1rem;
+
+            border-top-left-radius: 255px 15px;
+            border-top-right-radius: 15px 225px;
+            border-bottom-right-radius: 225px 15px;
+            border-bottom-left-radius:15px 255px;
+            border:solid 3px #41403E;
+            background:#F3B03E;
+        }
+        .nav-item-active{
+            padding:0.5rem 0.5rem;
+            
+            font-size:1rem;
+
+            border-top-left-radius: 25px 15px;
+            border-top-right-radius: 15px 225px;
+            border-bottom-right-radius: 225px 15px;
+            border-bottom-left-radius:15px 255px;
+            border:solid 3px #41403E;
+            background: #291600;
+        }
+        #novedad{
+            margin-top: 20px;
+            margin-left: 20px;
+            
+        }
+        .nov{
+            font-family: 'fuente3';
+            text-align: center  ;
+            border:dotted 3px #41403E;
+            padding:0.5rem 0.5rem;
+            margin-top: 4px;
+            margin-bottom: 4px;
+            font-size:1rem;
+
+            border-top-left-radius: 25px 15px;
+            border-top-right-radius: 15px 225px;
+            border-bottom-right-radius: 225px 15px;
+            border-bottom-left-radius:15px 255px;
+            background:#fbdaa2;
+        }
+        .banner{
+            position:relative;
+            top:30px;
+            left:40px;
+            width:335px;
+        }
+        #mapa{
+            position:relative;
+            top:40px;
+            left:40px;
+            width:335px;
+            height:400px;
+            
+        }
+        .rotate{
+            transform: rotate(180deg);
+        }
+        #decolink{
+            text-decoration: none;
+            color:black;
+        }
+        .firma{
+            text-align: center;
+            position:relative;
+            bottom: 0px;
+            height:20px;
+        }
+        body{
+            height: 2500px;
+        }
+        
+    </style>
+</head>
+<body style="background-color:#F3B03E">
+
+    <div class="cabecera">
+        <img alt="naturviajes" src="otros/naturviajes1.bmp" width="100%">
+    </div>
+
+    <div class="container" style="background-color:white;">
+    
+        <div class="row">
+            <div class="menu">
+                <ul class="nav nav-pills nav-fill">  
+                    <a class="nav-link" href="index.php">
+                        <li class="nav-item-active">Principal</li>
+                    </a>
+                    <a href='uploads.php' class='nav-link' style='font-size: 17px;'>
+                        <li class="nav-item">Subir viajes</li>
+                    </a>
+                    <a href='galeria.php' class='nav-link' style='font-size: 17px;'>
+                        <li class="nav-item">Galeria</li>
+                    </a>
+                    <a class="nav-link disabled" href="#">
+                        <li class="nav-item">Disabled</li>
+                    </a>
+                 </ul>
+            </div>
+            <div class="col-8"style=" margin-bottom:12px; margin-top:20px">
+                <?php
+                        $conexion = mysqli_connect("sql7.freemysqlhosting.net","sql7619463","XbX53VwYqW","sql7619463") or die("La conexión no se ha podido establecer");
+                        $conexion -> set_charset("utf8");
+                        $seccion = "SELECT * FROM secciones";
+                        $consulta = "SELECT * FROM contenido JOIN secciones ON contenido.seccion = secciones.seccion ORDER BY contenido.seccion";
+                        $resultado = MYSQLI_QUERY($conexion, $consulta);
+                        $reseccion = MYSQLI_QUERY($conexion, $seccion);
+                        while ($reg1 = mysqli_fetch_row($reseccion)) {
+                            echo "<div class='row'>
+                                    <img id='separador' src='otros/separador.png'>
+                                    <div class='nombresec'>
+                                      <h2 class='nombresc'>(" . $reg1[0] . ")</h2>
+                                    </div>"
+                                    ;
+                                
+                            $consulta_seccion = "SELECT * FROM contenido WHERE seccion = '".$reg1[0]."'ORDER BY contenido.fecha desc limit 2";
+                            $resultado_seccion = mysqli_query($conexion, $consulta_seccion);
+                                
+                                
+                            while ($registro = mysqli_fetch_row($resultado_seccion)) {
+                                echo "<div class='col-6'>
+                                        <a name=".$registro[2].">
+                                            <div class='card' style='width: 100%'>
+                                                <img src='imagenes/" . $registro[1] . "' class='card-img-top' alt='...' >
+                                                <div class='card-body'>
+                                                    <h5 class='card-title'>" . $registro[2] . "</h5>
+                                                    <p class='card-text'>" . $registro[3] . "</p>
+                                                    <button class='lined thick' href='#' style='font-size: 17px; '>Mas información</button><div class='fecha'>".$registro[4]."</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>";
+                                
+                            }
+                        
+                            echo"</div>";   
+                        }
+                    ?>
+            </div>
+            <div class="col-4">
+                <div id="novedad">
+                    <img src="otros/newup.png" width="370">
+                    <div class="nombresec">
+                        <h2>(Novedades)</h2>
+                    </div>
+                    <?php
+                        $conexion = mysqli_connect("sql7.freemysqlhosting.net","sql7619463","XbX53VwYqW","sql7619463") or die("La conexión no se ha podido establecer");
+                        $conexion -> set_charset("utf8");
+                        $consulta = "SELECT * FROM contenido ORDER BY contenido.fecha desc limit 5";
+                        $resultado = MYSQLI_QUERY($conexion, $consulta);
+                        while ($reg1 = mysqli_fetch_row($resultado)) {
+                            echo " <a id='decolink' href='#".$reg1[2]."'><div class='nov'>
+                                      <h2>" . $reg1[2] . " (".$reg1[5].")</h2></a>
+                                    </div></a>";
+                            };
+                        ?>
+                    <img src="otros/newup.png" width="370" class="rotate">
+                </div>
+                <div>
+                    <img src='otros/bannerNaturviajes.jpg' class='banner' alt='...' >
+                </div>
+                <div id="mapa">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.024204369453!2d-3.719958439324396!3d40.38615615985071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4227bb33da79b9%3A0xf5ed509c7ab4071e!2sCesur%20Madrid%20Plaza%20El%C3%ADptica%20-%20Formaci%C3%B3n%20Profesional!5e0!3m2!1ses!2ses!4v1684323732083!5m2!1ses!2ses" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+        
+  
+
+    <div class="firma">
+                Página creada por José María Valdés Azcárraga 1º DAW
+                
+        </div>
+
+
+   
+
+</body>
+
+</html>
+
